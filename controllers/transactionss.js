@@ -1,4 +1,4 @@
-const Transaction = require("../models/Transaction");
+const Transaction = require('../models/Transaction');
 
 // @desc Get all transactions
 // @route GET /api/v1/transactions
@@ -15,7 +15,7 @@ exports.getTransactions = async (req, res, next) => {
   } catch (err) {
     return res.status(500).json({
       success: false,
-      error: "Server Error",
+      error: 'Server Error',
     });
   }
 };
@@ -34,7 +34,7 @@ exports.addTransaction = async (req, res, next) => {
       data: transaction,
     });
   } catch (err) {
-    if (err.name === "ValidationError") {
+    if (err.name === 'ValidationError') {
       const messages = Object.values(err.errors).map(val => val.message);
 
       return res.status(400).json({
@@ -44,7 +44,7 @@ exports.addTransaction = async (req, res, next) => {
     } else {
       return res.status(500).json({
         success: false,
-        error: "Server Error",
+        error: 'Server Error',
       });
     }
   }
@@ -60,7 +60,7 @@ exports.deleteTransaction = async (req, res, next) => {
     if (!transaction) {
       return res.status(404).json({
         success: false,
-        error: "No transaction found",
+        error: 'No transaction found',
       });
     }
 
@@ -73,7 +73,7 @@ exports.deleteTransaction = async (req, res, next) => {
   } catch (err) {
     return res.status(500).json({
       success: false,
-      error: "Server Error",
+      error: 'Server Error',
     });
   }
 };

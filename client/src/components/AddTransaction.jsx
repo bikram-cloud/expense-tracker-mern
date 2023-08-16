@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
-import { GlobalContext } from "../context/GlobalState";
+import React, { useState, useContext } from 'react';
+import { GlobalContext } from '../context/GlobalState';
 
 const AddTransaction = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const [amount, setAmount] = useState(0);
 
   const { addTransaction } = useContext(GlobalContext);
@@ -25,6 +25,9 @@ const AddTransaction = () => {
     };
 
     addTransaction(newTransaction);
+
+    setText('');
+    setAmount(0);
   };
   return (
     <>
@@ -51,7 +54,12 @@ const AddTransaction = () => {
             placeholder="Enter amount..."
           />
         </div>
-        <button className="btn">Add transaction</button>
+
+        <button
+          className={`${text === '' ? 'disabledButton' : 'btn'}`}
+          disabled={!text}>
+          Add transaction
+        </button>
       </form>
     </>
   );
