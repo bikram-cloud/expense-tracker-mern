@@ -7,8 +7,7 @@
     "start": "node index",
     "server": "nodemon index",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "webpack --config webpack.config.js"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
